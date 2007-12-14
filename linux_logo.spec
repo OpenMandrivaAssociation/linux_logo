@@ -1,6 +1,6 @@
 %define	name	linux_logo
 %define	version	5.02
-%define	rel	1
+%define	rel	2
 %define	release	%mkrel %{rel}
 
 Summary:	ASCII Tux (Linux Penguin) 
