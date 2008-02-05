@@ -1,12 +1,7 @@
-%define	name	linux_logo
-%define	version	5.02
-%define	rel	2
-%define	release	%mkrel %{rel}
-
 Summary:	ASCII Tux (Linux Penguin) 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		linux_logo
+Version:	5.03
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
