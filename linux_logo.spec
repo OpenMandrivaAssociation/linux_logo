@@ -4,6 +4,7 @@ Version:	5.03
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Configuration/Boot and Init
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
