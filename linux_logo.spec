@@ -1,7 +1,7 @@
 Summary:	ASCII Tux (Linux Penguin) 
 Name:		linux_logo
 Version:	5.03
-Release:	%mkrel 1
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Configuration/Boot and Init
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
