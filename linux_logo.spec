@@ -18,7 +18,7 @@ This package contains an ASCII Linux-Penguin.
 
 %build
 ./configure --prefix=%{buildroot}%{_prefix}
-%make CFLAGS="%{optflags}"
+%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
 rm -rf %{buildroot}
