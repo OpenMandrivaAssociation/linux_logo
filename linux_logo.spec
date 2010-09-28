@@ -1,6 +1,6 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
-Version:	5.06
+Version:	5.10
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Configuration/Boot and Init
@@ -8,21 +8,23 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
+Patch1:		linux_logo-5.10-fix-po-update.patch
 
 %description
 This package contains an ASCII Linux-Penguin.
 
 %prep
 %setup -q
-%patch0 -p1 -b .mdklogos
+%patch0 -p1 -b .mdklogos~
+%patch1 -p1 -b .po_update~
 
 %build
-./configure --prefix=%{buildroot}%{_prefix}
+./configure --prefix=%{_prefix}
 %make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std
+make install PREFIX=%{buildroot}%{_prefix}
 
 %find_lang %{name}
 
