@@ -8,22 +8,6 @@ Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.g
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
 
-%define debug_package \
-%ifnarch noarch\
-%global __debug_package 1\
-%package debuginfo\
-Summary: Debug information for package %{name}\
-Group: Development/Debug\
-AutoReqProv: 0\
-%description debuginfo\
-This package provides debug information for package %{name}.\
-Debug information is useful when developing applications that use this\
-package or when debugging this package.\
-%files debuginfo -f debugfiles.list\
-%defattr(-,root,root)\
-%endif\
-%{nil}
-
 %description
 This package contains an ASCII Linux-Penguin.
 
