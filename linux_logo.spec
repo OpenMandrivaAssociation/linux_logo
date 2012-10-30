@@ -16,7 +16,7 @@ This package contains an ASCII Linux-Penguin.
 %patch0 -p1 -b .mdklogos~
 find -exec chmod go+r {} + 
 
-f=CHANGE
+f=CHANGES
 iconv -f ISO8859-1 -t UTF-8 -o $f.new $f
 touch -r $f $f.new
 mv $f.new $f
