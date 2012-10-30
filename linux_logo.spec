@@ -1,7 +1,7 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	5
+Release:	6
 License:	GPL
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
@@ -15,6 +15,11 @@ This package contains an ASCII Linux-Penguin.
 %setup -q
 %patch0 -p1 -b .mdklogos~
 find -exec chmod go+r {} + 
+
+f=CHANGE
+iconv -f ISO8859-1 -t UTF-8 -o $f.new $f
+touch -r $f $f.new
+mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
