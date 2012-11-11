@@ -1,0 +1,6 @@
+--- /dev/null	2007-12-01 19:36:46.626722110 +0100
++++ linux_logo-5.02/logo_config	2007-12-03 16:44:36.000000000 +0100
+@@ -0,0 +1,3 @@
++./logos/classic-no_periods_or_chars.logo
++./logos/distributions/mandriva-banner.logo
++./logos/banner.logo
