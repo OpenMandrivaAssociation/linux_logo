@@ -1,28 +1,12 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	4
-License:	GPL
+Release:	7
+License:	GPLv2
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
-
-%define debug_package \
-%ifnarch noarch\
-%global __debug_package 1\
-%package debuginfo\
-Summary: Debug information for package %{name}\
-Group: Development/Debug\
-AutoReqProv: 0\
-%description debuginfo\
-This package provides debug information for package %{name}.\
-Debug information is useful when developing applications that use this\
-package or when debugging this package.\
-%files debuginfo -f debugfiles.list\
-%defattr(-,root,root)\
-%endif\
-%{nil}
 
 %description
 This package contains an ASCII Linux-Penguin.
@@ -31,6 +15,11 @@ This package contains an ASCII Linux-Penguin.
 %setup -q
 %patch0 -p1 -b .mdklogos~
 find -exec chmod go+r {} + 
+
+f=CHANGES
+iconv -f ISO8859-1 -t UTF-8 -o $f.new $f
+touch -r $f $f.new
+mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
@@ -47,8 +36,16 @@ make install PREFIX=%{buildroot}%{_prefix}
 %{_bindir}/linux_logo
 %{_mandir}/man1/linux_logo.1*
 
-
 %changelog
+* Wed Dec 19 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-7
+- rebuild
+
+* Tue Oct 30 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-6
++ Revision: 820721
+- update license
+- fix encoding of 'CHANGES'
+- remove debuginfo test mess..
+
 * Fri Mar 16 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-4
 + Revision: 785385
 - try again.. :p
