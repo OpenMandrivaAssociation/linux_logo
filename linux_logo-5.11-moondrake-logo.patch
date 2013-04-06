@@ -1,0 +1,41 @@
+--- linux_logo-5.11/logos/distributions/moondrake.logo.mdk~	2013-04-06 06:07:12.483254268 +0200
++++ linux_logo-5.11/logos/distributions/moondrake.logo	2013-04-06 06:06:57.539696482 +0200
+@@ -0,0 +1,38 @@
++# Moondrake GNU/Linux Banner
++# Drawn by Sitsofe Wheeler <sits@sucs.org>; updated by Stefan Siegel <siegel@mandrakesoft.com>
++#
++
++SYSINFO_POSITION bottom
++
++DESCRIPTION_STRING Moondrake GNU/Linux Banner
++NAME moondrake_banner
++
++BEGIN_LOGO
++[0;30;40m                                 [44m [40m     [44m [40m                  [44m  [40m         [44m  [40m        [34m(TM)[37m 
++[40m                 [43m [40m               [44m  [40m   [44m  [40m                   [44m [40m          [44m [40m             
++[40m                 [43m  [40m              [44m [40m [44m [40m [44m [40m [44m [40m  [44m  [40m   [44m  [40m  [44m   [40m   [44m   [40m [44m [40m [44m [40m  [44m   [40m [44m [40m  [44m  [40m  [44m  [40m     
++[40m                [43m   [40m              [44m [40m  [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m  [40m  [44m [40m  [44m [40m [44m   [40m   [44m    [40m    
++[40m  [44m [40m    [43m             [40m             [44m [40m     [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m  [44m [40m [44m [40m   [44m [40m  [44m [40m [44m [40m [44m [40m   [44m [40m       
++[40m [44m  [40m      [43m               [40m  [33m\|/[37m    [44m [40m     [44m [40m  [44m  [40m   [44m  [40m  [44m [40m  [44m [40m  [44m   [40m [44m [40m    [44m   [40m [44m [40m  [44m  [40m  [44m  [40m     
++[40m [44m [40m        [43m                 [40m [33m-[37m                                                  
++[40m [44m [40m         [43m            [40m   [33m/|\[37m      [44m  [40m   [44m  [40m                                     
++[40m [44m  [40m       [43m          [40m              [44m  [40m                                           
++[40m [44m   [40m    [43m      [40m [43m     [40m              [44m  [40m    [44m  [40m  [44m    [40m  [44m  [40m [44m  [40m [44m  [40m [44m  [40m                  
++[40m  [44m    [40m   [44m    [40m     [43m   [40m            [44m  [40m     [44m  [40m  [44m  [40m [44m  [40m [44m  [40m [44m  [40m  [44m   [40m                   
++[40m    [44m     [40m          [43m  [40m            [44m     [40m  [44m  [40m  [44m  [40m [44m  [40m  [44m    [40m [44m  [40m [44m  [40m                  
++END_LOGO
++
++BEGIN_ASCII_LOGO
++                     Mi             #     #                   ##         ##      (TM)
++                   oMMM             ##   ##                    #          #          
++                  oMMMM             # # # #  ##   ##   ###   ### # #  ### #  ##  ##  
++  M     "MMMoooooMMMMMM             #  #  # #  # #  #  #  # #  # ##  #  # ###   #### 
++ M        MMMMMMMMMMMMMMooo     \|/ #     # #  # #  #  #  # #  # #   #  # # #   #    
++oM         "MMMMMMMMMMMMMMMMMMM"  - #     #  ##   ##   #  #  ### #    ### #  ##  ##  
++MM           MMMMMMMMMMMMMM""   /|\                                            
++MM          oMMMMMMMMMMM"              ##   ##                                 
++MM         oMMMMMMMMMMMM              ##                                       
++ MM       oMM"""  "MMMMM              ##    ##  ####   ## ##  ## ##            
++ "MMo    ""  oo"    "MMM             ##     ##  ## ##  ## ##   ###             
++   "MMMooo"""         "MM            #####  ##  ## ##   ####  ## ##            
++END_ASCII_LOGO
