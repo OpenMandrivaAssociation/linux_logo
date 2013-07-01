@@ -1,16 +1,16 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	8
+Release:	9
 License:	GPLv2
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
-Patch1:		linux_logo-5.11-moondrake-logo.patch
+Patch1:		linux_logo-5.11-openmandriva-logo.patch
 
 %description
-This package contains an ASCII Linux-Penguin.
+This package draws the logo seen at the console.
 
 %prep
 %setup -q
