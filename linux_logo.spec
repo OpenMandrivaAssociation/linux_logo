@@ -1,7 +1,7 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	9
+Release:	10
 License:	GPLv2
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
@@ -17,6 +17,9 @@ This package draws the logo seen at the console.
 %setup -q
 %patch0 -p1 -b .mdklogos~
 %patch1 -p1 -b .mdk~
+%if "%{disttag}" == "mdk"
+sed -e 's#openmandriva#moondrake#g' -i logo_config
+%endif
 find -exec chmod go+r {} + 
 
 f=CHANGES
