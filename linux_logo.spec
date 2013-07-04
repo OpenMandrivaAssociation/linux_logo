@@ -17,6 +17,7 @@ This package draws the logo seen at the console.
 %setup -q
 %patch0 -p1 -b .mdklogos~
 %patch1 -p1 -b .mdk~
+%patch2 -p1 -b .omv~
 %if "%{disttag}" == "mdk"
 sed -e 's#openmandriva#moondrake#g' -i logo_config
 %endif
