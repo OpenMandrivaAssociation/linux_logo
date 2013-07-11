@@ -1,0 +1,77 @@
+--- linux_logo-5.11/linux_logo.c~	2010-11-15 18:31:36.000000000 +0100
++++ linux_logo-5.11/linux_logo.c	2013-07-11 06:10:30.808759090 +0200
+@@ -12,10 +12,13 @@
+ 
+ #define VERSION "5.11"
+ 
++#define _GNU_SOURCE
+ #include <stdio.h>
+ #include <stdlib.h>   /* calloc() */
+ #include <string.h>   /* strdup() */
+ #include <sys/time.h> /* time() */
++#include <sys/types.h>
++#include <sys/stat.h>
+ #include <locale.h>
+ 
+ #define ESCAPE "\033"
+@@ -76,8 +79,37 @@ static void setup_default_logos() {
+ 
+    struct logo_info *new_logo;
+ 
++   struct stat st;
++   typedef enum distro {
++       MOONDRAKE,
++       OPENMANDRIVA
++   } distro_t;
++
++   distro_t dist = MOONDRAKE;
++
++   if (!stat("/etc/os-release", &st)) {
++       char buf[BUFSIZ];
++       FILE *fp = fopen("/etc/os-release", "r");
++       fread(buf, sizeof(buf), 1, fp);
++       if (!ferror(fp)) {
++	   if (strcasestr(buf, "moondrake")) {
++	       dist = MOONDRAKE;
++	   } else if (strcasestr(buf, "openmandriva")) {
++	       dist = OPENMANDRIVA;
++	   }
++       }
++   }
++   switch (dist) {
++       default:
++       case MOONDRAKE: {
+ #include "load_logos.h"
+-   
++	    }
++	    break;
++       case OPENMANDRIVA: {
++#include "load_logos_omv.h"
++	    }
++	    break;
++   }
+ }
+ 
+ 
+--- linux_logo-5.11/parse_logos.c~	2007-07-09 18:47:15.000000000 +0200
++++ linux_logo-5.11/parse_logos.c	2013-07-11 06:10:28.805754225 +0200
+@@ -59,10 +59,16 @@ int main(int argc, char **argv) {
+     fff=fopen("logo_config.Irix","r");
+ #elif __FreeBSD__
+     fff=fopen("logo_config.BSD","r");
+-#else   
+-    fff=fopen("logo_config","r");
++#else
++    if (argc >= 2)
++	fff=fopen(argv[1], "r");
++    else
++	fff=fopen("logo_config","r");
+ #endif   
+-    ggg=fopen("load_logos.h","w");
++    if (argc >= 3)
++	ggg=fopen(argv[2], "w");
++    else
++	ggg=fopen("load_logos.h","w");
+ 
+     printf("\nParsing logos from file \"logo_config\"...\n"); 
+    

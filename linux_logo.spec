@@ -1,7 +1,7 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	10
+Release:	11
 License:	GPLv2
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
@@ -9,6 +9,7 @@ URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
 Patch1:		linux_logo-5.11-moondrake-logo.patch
 Patch2:		linux_logo-5.11-openmandriva-logo.patch
+Patch3:		linux_logo-5.11-select-default-logo-during-runtime.patch
 
 %description
 This package draws the logo seen at the console.
@@ -18,9 +19,8 @@ This package draws the logo seen at the console.
 %patch0 -p1 -b .mdklogos~
 %patch1 -p1 -b .mdk~
 %patch2 -p1 -b .omv~
-%if "%{disttag}" == "mdk"
-sed -e 's#openmandriva#moondrake#g' -i logo_config
-%endif
+%patch3 -p1 -b .runtime~
+sed -e 's#moondrake#openmandriva#g' logo_config > logo_config_omv
 find -exec chmod go+r {} + 
 
 f=CHANGES
@@ -30,6 +30,8 @@ mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
+make parse_logos
+./parse_logos logo_config_omv load_logos_omv.h
 %make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
