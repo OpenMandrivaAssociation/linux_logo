@@ -20,7 +20,6 @@ This package draws the logo seen at the console.
 %patch1 -p1 -b .mdk~
 %patch2 -p1 -b .omv~
 %patch3 -p1 -b .runtime~
-sed -e 's#moondrake#openmandriva#g' logo_config > logo_config_omv
 find -exec chmod go+r {} + 
 
 f=CHANGES
@@ -30,8 +29,6 @@ mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
-make parse_logos
-./parse_logos logo_config_omv load_logos_omv.h
 %make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
