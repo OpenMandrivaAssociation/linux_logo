@@ -1,0 +1,10 @@
+# linux_logo behavior
+
+# Should linux_logo write output to /etc/issue
+ISSUE=yes
+
+# Should linux_logo write output to /etc/issue.net
+ISSUENET=no
+
+# Should linux_logo write output to /etc/motd.net
+MOTD=no

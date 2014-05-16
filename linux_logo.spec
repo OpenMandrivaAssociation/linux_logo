@@ -1,10 +1,13 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	15
+Release:	19
 License:	GPLv2
 Group:		System/Configuration/Boot and Init
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
+Source1:	linux_logo.service
+Source2:	linux_logo.sysinit
+Source3:	linux_logo.sysconfig
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
 Patch1:		linux_logo-5.11-moondrake-logo.patch
@@ -36,11 +39,19 @@ make install PREFIX=%{buildroot}%{_prefix}
 
 %find_lang %{name}
 
+install -m644 -p %{SOURCE2} -D %{buildroot}%{_unitdir}/%{name}.service
+install -m755 -p %{SOURCE3} -D %{buildroot}%{_libexecdir}/%{name}
+install -m644 -p %{SOURCE4} -D %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+
 %files -f %{name}.lang
 %doc ANNOUNCE.logo BUGS CHANGES README TODO
 %doc LINUX_LOGO.FAQ USAGE README.CUSTOM_LOGOS
 %{_bindir}/linux_logo
 %{_mandir}/man1/linux_logo.1*
+%{_libexecdir}/%{name}
+%{_unitdir}/%{name}.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+
 
 %changelog
 * Wed Dec 19 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-7
