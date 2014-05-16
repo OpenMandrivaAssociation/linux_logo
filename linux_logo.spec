@@ -39,9 +39,9 @@ make install PREFIX=%{buildroot}%{_prefix}
 
 %find_lang %{name}
 
-install -m644 -p %{SOURCE2} -D %{buildroot}%{_unitdir}/%{name}.service
-install -m755 -p %{SOURCE3} -D %{buildroot}%{_libexecdir}/%{name}
-install -m644 -p %{SOURCE4} -D %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+install -m644 -p %{SOURCE1} -D %{buildroot}%{_unitdir}/%{name}.service
+install -m755 -p %{SOURCE2} -D %{buildroot}%{_libexecdir}/%{name}
+install -m644 -p %{SOURCE3} -D %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 
 %files -f %{name}.lang
 %doc ANNOUNCE.logo BUGS CHANGES README TODO
