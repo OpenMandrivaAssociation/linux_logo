@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 [ -f /etc/sysconfig/linux_logo ] && . /etc/sysconfig/linux_logo
 
