@@ -1,7 +1,7 @@
 Summary:	ASCII Tux (Linux Penguin)
 Name:		linux_logo
 Version:	5.11
-Release:	23
+Release:	24
 Epoch:		-1
 License:	GPLv2
 Group:		System/Configuration/Boot and Init
