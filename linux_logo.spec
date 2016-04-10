@@ -32,7 +32,7 @@ mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
-%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
+%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc}
 
 %install
 make install PREFIX=%{buildroot}%{_prefix}
