@@ -1,43 +1,43 @@
---- linux_logo-5.11/linux_logo.c.runtime~	2010-11-15 18:31:36.000000000 +0100
-+++ linux_logo-5.11/linux_logo.c	2013-07-11 06:40:14.663736706 +0200
-@@ -12,9 +12,12 @@
+diff -uraN linux_logo-6.0/linux_logo.c omv-linux_logo-6.0/linux_logo.c
+--- linux_logo-6.0/linux_logo.c	2020-05-09 23:50:19.000000000 +0200
++++ omv-linux_logo-6.0/linux_logo.c	2020-07-17 14:55:57.737005592 +0200
+@@ -12,9 +12,11 @@
  
- #define VERSION "5.11"
+ #define VERSION "6.0"
  
 +#define _GNU_SOURCE
  #include <stdio.h>
  #include <stdlib.h>   /* calloc() */
  #include <string.h>   /* strdup() */
 +#include <sys/stat.h> /* stat() */
-+
  #include <sys/time.h> /* time() */
  #include <locale.h>
  
-@@ -1037,6 +1040,7 @@ int main(int argc,char **argv) {
-     char temp_string[BUFSIZ],*temp_pointer;
-     struct linux_logo_info_type settings;
-     struct logo_info *custom_logo=NULL;
+@@ -1092,6 +1094,7 @@
+ 	char temp_string[BUFSIZ],*temp_pointer;
+ 	struct linux_logo_info_type settings;
+ 	struct logo_info *custom_logo=NULL;
 +    struct stat st;
  
  #if (USE_I18N==1)
-        /* i18n */
-@@ -1059,6 +1063,19 @@ int main(int argc,char **argv) {
-        /* Setup all the logos */
-     setup_default_logos();
+ 	/* i18n */
+@@ -1114,6 +1117,19 @@
+ 	/* Setup all the logos */
+ 	setup_default_logos();
  
-+   if (!stat("/etc/os-release", &st)) {
-+       char buf[BUFSIZ];
-+       FILE *fp = fopen("/etc/os-release", "r");
-+       fread(buf, sizeof(buf), 1, fp);
-+       if (!ferror(fp)) {
-+	   if (strcasestr(buf, "moondrake")) {
-+	       logo_num = 2;
-+	   } else if (strcasestr(buf, "openmandriva")) {
-+	       logo_num = 3;
-+	   }
-+       }
-+   }
++if (!stat("/etc/os-release", &st)) {
++    char buf[BUFSIZ];
++    FILE *fp = fopen("/etc/os-release", "r");
++    fread(buf, sizeof(buf), 1, fp);
++    if (!ferror(fp)) {
++        if (strcasestr(buf, "moondrake")) {
++            logo_num = 2;
++        } else if (strcasestr(buf, "openmandriva")) {
++            logo_num = 3;
++        }
++    }
++}
 +
-        /* If user requested a list, list them and exit */
-     if (want_list_logos) list_logos();
+ 	/* If user requested a list, list them and exit */
+ 	if (want_list_logos) list_logos();
  
