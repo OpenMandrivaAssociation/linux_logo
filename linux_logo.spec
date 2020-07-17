@@ -44,7 +44,7 @@ install -m755 -p %{SOURCE2} -D %{buildroot}%{_libexecdir}/%{name}
 install -m644 -p %{SOURCE3} -D %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 
 %files -f %{name}.lang
-%doc ANNOUNCE.logo BUGS CHANGES README TODO
+%doc BUGS CHANGES README TODO
 %doc LINUX_LOGO.FAQ USAGE README.CUSTOM_LOGOS
 %{_bindir}/linux_logo
 %{_mandir}/man1/linux_logo.1*
