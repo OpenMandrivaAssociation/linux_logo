@@ -3,7 +3,7 @@ diff -uraN linux_logo-6.0/linux_logo.c omv-linux_logo-6.0/linux_logo.c
 +++ omv-linux_logo-6.0/linux_logo.c	2020-07-17 14:55:57.737005592 +0200
 @@ -12,9 +12,11 @@
  
- #define VERSION "6.0"
+ #define VERSION "6.01"
  
 +#define _GNU_SOURCE
  #include <stdio.h>
