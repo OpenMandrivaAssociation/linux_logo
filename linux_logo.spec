@@ -15,6 +15,7 @@ Patch2:		linux_logo-5.11-openmandriva-logo.patch
 Patch3:		linux_logo-5.11-select-default-logo-during-runtime.patch
 
 BuildRequires:	locales-extra-charsets
+BuildRequires:	which
 
 %description
 This package draws the logo seen at the console.
