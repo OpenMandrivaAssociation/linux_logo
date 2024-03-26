@@ -18,11 +18,7 @@ Patch3:		linux_logo-5.11-select-default-logo-during-runtime.patch
 This package draws the logo seen at the console.
 
 %prep
-%setup -q
-%patch0 -p1 -b .mdklogos~
-%patch1 -p1 -b .mdk~
-%patch2 -p1 -b .omv~
-%patch3 -p1 -b .runtime~
+%autosetup -p1
 find -exec chmod go+r {} + 
 
 f=CHANGES
@@ -32,7 +28,7 @@ mv $f.new $f
 
 %build
 ./configure --prefix=%{_prefix}
-%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc}
+%make_build CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc}
 
 %install
 make install PREFIX=%{buildroot}%{_prefix}
@@ -42,6 +38,12 @@ make install PREFIX=%{buildroot}%{_prefix}
 install -m644 -p %{SOURCE1} -D %{buildroot}%{_unitdir}/%{name}.service
 install -m755 -p %{SOURCE2} -D %{buildroot}%{_libexecdir}/%{name}
 install -m644 -p %{SOURCE3} -D %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+
+%post
+%_post_service %{name}
+
+%preun
+%_preun_service %{name}
 
 %files -f %{name}.lang
 %doc BUGS CHANGES README TODO

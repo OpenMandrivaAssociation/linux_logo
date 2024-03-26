@@ -9,3 +9,6 @@ Type=oneshot
 TimeoutSec=0
 StandardInput=tty
 RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
