@@ -8,7 +8,7 @@ Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.g
 Source1:	linux_logo.service
 Source2:	linux_logo.sysinit
 Source3:	linux_logo.sysconfig
-URL:		http://www.deater.net/weave/vmwprod/linux_logo/
+URL:		https://www.deater.net/weave/vmwprod/linux_logo/
 Patch0:		linux_logo-5.02-use-mdk-logo.patch
 Patch1:		linux_logo-5.11-moondrake-logo.patch
 Patch2:		linux_logo-5.11-openmandriva-logo.patch
