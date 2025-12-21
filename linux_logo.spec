@@ -14,6 +14,11 @@ Patch1:		linux_logo-5.11-moondrake-logo.patch
 Patch2:		linux_logo-5.11-openmandriva-logo.patch
 Patch3:		linux_logo-5.11-select-default-logo-during-runtime.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gettext
 BuildRequires:	locales-extra-charsets
 BuildRequires:	which
